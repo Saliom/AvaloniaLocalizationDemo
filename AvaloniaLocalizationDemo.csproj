@@ -17,4 +17,20 @@
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.6" />
   </ItemGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Include="Lang\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Update="Lang\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</AvaloniaResource>
+		<AvaloniaResource Update="Lang\Resources.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</AvaloniaResource>
+	</ItemGroup>
 </Project>
