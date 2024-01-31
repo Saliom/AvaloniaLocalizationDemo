@@ -2,8 +2,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		xmlns:local="clr-namespace:AvaloniaLocalizationDemo"
+        mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="200"
+		Width="200" Height="200"
         x:Class="AvaloniaLocalizationDemo.MainWindow"
-        Title="AvaloniaLocalizationDemo">
-    Welcome to Avalonia!
+        Title="AvaloniaLocalizationDemo"
+		x:DataType="local:MainWindow">
+	<StackPanel Margin="20">
+		<ComboBox SelectionChanged="ComboBox_SelectionChanged"
+		 HorizontalAlignment="Center">
+			<ComboBoxItem>Français</ComboBoxItem>
+			<ComboBoxItem>English</ComboBoxItem>
+			<ComboBoxItem>Chinese</ComboBoxItem>
+			<ComboBoxItem>Japanese</ComboBoxItem>
+			<ComboBoxItem>Filipino</ComboBoxItem>
+		</ComboBox>
+
+		<TextBlock Margin="20" HorizontalAlignment="Center" Text="{Binding HelloTxt}"/>
+
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+			<TextBlock>Current Culture:</TextBlock>
+			<TextBlock Text="{Binding CurrentCultureTxt}"/>
+		</StackPanel>
+	</StackPanel>
 </Window>
